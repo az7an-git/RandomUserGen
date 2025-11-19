@@ -4,17 +4,31 @@ const UserCard = ({ data }) => {
   if (!data) return <h2 className="text-2xl font-bold">Loading...</h2>;
 
   return (
-    <div className="p-6 rounded-xl shadow-md w-80 bg-gray-200">
+    <div className="p-6 rounded-2xl shadow-xl w-80 bg-white/60 backdrop-blur-md border border-white/30">
       <img
         src={data.picture.large}
         alt="User"
-        className="rounded-full w-30 h-30 mx-auto"
+        className="rounded-full w-32 h-32 mx-auto shadow-md"
       />
-      <h3 className="text-2xl text-center font-bold mt-4">
+
+      <h3 className="text-2xl text-center font-bold mt-4 text-gray-900">
         {data.name.first} {data.name.last}
       </h3>
-      <p className="text-center text-lg">{data.gender}</p>
-      <p className="text-center text-md text-gray-700">{data.email}</p>
+
+      <p className="text-center text-lg capitalize text-gray-600">
+        {data.gender}
+      </p>
+
+      <p className="text-center text-md text-gray-700 mt-1">{data.email}</p>
+
+      <div className="flex justify-center gap-3 mt-4">
+        <p className="bg-gray-100 px-3 py-1 rounded-md text-sm text-gray-600">
+          {data.location.country}
+        </p>
+        <p className="bg-gray-100 px-3 py-1 rounded-md text-sm text-gray-600">
+          {data.dob.age} yrs
+        </p>
+      </div>
     </div>
   );
 };
