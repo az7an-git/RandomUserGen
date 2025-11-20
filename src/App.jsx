@@ -6,14 +6,17 @@ import UserCard from "./Components/UserCard";
 function App() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const loadUser = async () => {
     try {
       setLoading(true);
+      setError(null);
       const user = await RandomUser();
       setUserData(user.results[0]);
-    } catch (error) {
-      console.error("Failed to fetch user:", error);
+    } catch (e) {
+      console.error("Failed to fetch user:", e);
+      setError("Failed to load user. Try again.");
     } finally {
       setLoading(false);
     }
@@ -32,6 +35,8 @@ function App() {
       ) : (
         userData && <UserCard data={userData} />
       )}
+
+      {error && <p className="text-red-500 mt-2 font-medium">{error}</p>}
 
       <button
         onClick={loadUser}
