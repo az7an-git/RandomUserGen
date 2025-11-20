@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { RandomUser } from "./api/RandomUser";
 import UserCard from "./Components/UserCard";
+import { RandomUser } from "./api/RandomUser";
 
 function App() {
   const [userData, setUserData] = useState(null);
