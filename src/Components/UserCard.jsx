@@ -4,7 +4,7 @@ const UserCard = ({ data }) => {
   if (!data) return <h2 className="text-2xl font-bold">Loading...</h2>;
 
   return (
-    <div className="p-6 rounded-2xl shadow-xl w-80 bg-white/60 backdrop-blur-md border border-white/30">
+    <div className="p-6 rounded-2xl shadow-xl w-full max-w-xs sm:max-w-sm bg-white/60 backdrop-blur-md border border-white/30 hover:shadow-2xl transition-all">
       <img
         src={data.picture.large}
         alt="User"
