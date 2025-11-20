@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-200 via-slate-400 to-slate-500 p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-linear-to-br from-slate-200 via-slate-300 to-slate-500 p-6">
       {loading ? (
         <div className="flex flex-col items-center animate-pulse">
           <div className="w-20 h-20 rounded-full bg-gray-300 mb-4"></div>
