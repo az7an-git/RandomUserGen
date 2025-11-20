@@ -27,11 +27,12 @@ function App() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-linear-to-br from-slate-200 to-slate-500 ">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-slate-200 via-slate-400 to-slate-500 p-6">
       {loading ? (
-        <p className="text-xl font-semibold text-gray-700 animate-pulse">
-          Loading...
-        </p>
+        <div className="flex flex-col items-center animate-pulse">
+          <div className="w-20 h-20 rounded-full bg-gray-300 mb-4"></div>
+          <p className="text-xl font-semibold text-gray-700">Loading...</p>
+        </div>
       ) : (
         userData && <UserCard data={userData} />
       )}
