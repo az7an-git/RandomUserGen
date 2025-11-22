@@ -1,10 +1,13 @@
 import axios from "axios";
 
-export const RandomUser = async () => {
+export const RandomUser = async (count = 6) => {
   try {
-    const response = await axios.get("https://randomuser.me/api/?results=1");
+    const response = await axios.get(
+      `https://randomuser.me/api/?results=${count}`
+    );
     return response.data;
   } catch (error) {
-    throw new Error("Failed to fetch random user", error);
+    console.error(error);
+    throw new Error("Failed to fetch users");
   }
 };
