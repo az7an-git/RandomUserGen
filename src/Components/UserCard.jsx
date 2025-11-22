@@ -1,4 +1,3 @@
-// src/Components/UserCard.jsx
 import React from "react";
 
 const UserCard = ({ data }) => {
