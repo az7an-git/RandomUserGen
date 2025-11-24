@@ -1,7 +1,7 @@
 import React from "react";
 
 const UserCard = ({ data }) => {
-  if (!data) return null;
+  if (!data || typeof data !== "object") return null;
 
   const {
     name: { first, last },
