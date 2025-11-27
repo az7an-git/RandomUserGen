@@ -7,12 +7,15 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [genderFilter, setGenderFilter] = useState("all");
+  const [countryFilter, setCountryFilter] = useState("all");
+
   const loadUsers = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      const data = await RandomUser(4);
+      const data = await RandomUser(9);
       setUsers(data.results);
     } catch (e) {
       setError(`Failed to load users. ${e.message}`);
@@ -25,8 +28,32 @@ export const UserProvider = ({ children }) => {
     loadUsers();
   }, []);
 
+  const filteredUsers = users.filter((user) => {
+    const genderMatch = genderFilter === "all" || user.gender === genderFilter;
+
+    const countryMatch =
+      countryFilter === "all" || user.location.country === countryFilter;
+
+    return genderMatch && countryMatch;
+  });
+
+  const countries = [...new Set(users.map((u) => u.location.country))];
+
   return (
-    <UserContext.Provider value={{ users, loading, error, loadUsers }}>
+    <UserContext.Provider
+      value={{
+        users,
+        loadUsers,
+        error,
+        loading,
+        filteredUsers,
+        genderFilter,
+        setGenderFilter,
+        countries,
+        countryFilter,
+        setCountryFilter,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );
