@@ -16,7 +16,7 @@ const Filters = () => {
       <select
         value={genderFilter}
         onChange={(e) => setGenderFilter(e.target.value)}
-        className="px-2 py-2 rounded-lg bg-white shadow cursor-pointer focus:outline-0"
+        className="px-5 py-2 rounded-lg bg-white shadow cursor-pointer focus:outline-0"
       >
         <option value="all">All Genders</option>
         <option value="male">Male</option>
@@ -25,7 +25,7 @@ const Filters = () => {
 
       <button
         onClick={loadUsers}
-        className="px-5 py-3 bg-amber-500 hover:bg-amber-400 rounded-xl text-white shadow-md active:scale-95 transition"
+        className="px-6 py-3 bg-amber-500 hover:bg-amber-400 rounded-xl text-white shadow-md active:scale-95 transition"
       >
         Load New Users
       </button>
@@ -33,7 +33,7 @@ const Filters = () => {
       <select
         value={countryFilter}
         onChange={(e) => setCountryFilter(e.target.value)}
-        className="px-2 py-2 rounded-lg bg-white shadow cursor-pointer focus:outline-0"
+        className="px-4 py-2 rounded-lg bg-white shadow cursor-pointer focus:outline-0"
       >
         <option value="all">All Countries</option>
         {countries.map((country) => (
