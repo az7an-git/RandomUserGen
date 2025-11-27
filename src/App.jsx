@@ -1,6 +1,8 @@
 import "./App.css";
 import { useContext } from "react";
 import { UserContext } from "./context/userContext";
+import Filters from "./Components/Filters";
+import UserList from "./Components/UserList";
 
 function App() {
   const { error } = useContext(UserContext);

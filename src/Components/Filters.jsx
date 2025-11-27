@@ -4,12 +4,12 @@ import { UserContext } from "../context/userContext";
 
 const Filters = () => {
   const {
+    loadUsers,
     genderFilter,
     setGenderFilter,
+    countries,
     countryFilter,
     setCountryFilter,
-    countries,
-    loadUsers,
   } = useContext(UserContext);
 
   return (
