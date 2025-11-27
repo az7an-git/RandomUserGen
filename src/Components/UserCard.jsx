@@ -1,5 +1,3 @@
-import React from "react";
-
 const UserCard = ({ data }) => {
   if (!data || typeof data !== "object") return null;
 
@@ -13,7 +11,7 @@ const UserCard = ({ data }) => {
   } = data;
 
   return (
-    <div className="p-6 rounded-2xl shadow-xl w-full max-w-xs sm:max-w-sm bg-white/60 backdrop-blur-md border border-white/30 hover:shadow-2xl transition-all">
+    <div className="p-6 rounded-3xl shadow-xl w-full max-w-xs sm:max-w-sm bg-white/80 backdrop-blur-sm hover:shadow-2xl hover:scale-[1.01] transition-all">
       <img
         src={pictureUrl}
         alt={`${first} ${last}`}
@@ -25,7 +23,7 @@ const UserCard = ({ data }) => {
       </h3>
 
       <p className="text-center text-lg capitalize text-gray-600">{gender}</p>
-      <p className="text-center text-md text-gray-700 mt-1">{email}</p>
+      <p className="text-center text-md text-gray-700 mt-1 truncate">{email}</p>
 
       <div className="flex justify-center gap-3 mt-4">
         <p className="bg-gray-100 px-3 py-1 rounded-md text-sm text-gray-600">
