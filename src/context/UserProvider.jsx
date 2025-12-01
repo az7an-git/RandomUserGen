@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { RandomUser } from "../api/randomUser";
-import { UserContext } from "./UserContext";
+import { UserContext } from "./userContext";
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
@@ -14,7 +14,8 @@ export const UserProvider = ({ children }) => {
     try {
       setLoading(true);
       setError(null);
-      const data = await RandomUser(9);
+
+      const data = await RandomUser();
       setUsers(data.results);
       setGenderFilter("all");
       setCountryFilter("all");

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../context/userContext";
 
 const Filters = () => {
   const {
@@ -13,6 +13,7 @@ const Filters = () => {
 
   return (
     <div className="flex justify-center gap-4 mb-6">
+      
       <select
         value={genderFilter}
         onChange={(e) => setGenderFilter(e.target.value)}
