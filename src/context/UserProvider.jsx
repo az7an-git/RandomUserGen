@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { UserContext } from "./userContext";
 import { RandomUser } from "../api/randomUser";
+import { UserContext } from "./UserContext";
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
@@ -14,9 +14,10 @@ export const UserProvider = ({ children }) => {
     try {
       setLoading(true);
       setError(null);
-
       const data = await RandomUser(9);
       setUsers(data.results);
+      setGenderFilter("all");
+      setCountryFilter("all");
     } catch (e) {
       setError(`Failed to load users. ${e.message}`);
     } finally {
@@ -30,10 +31,8 @@ export const UserProvider = ({ children }) => {
 
   const filteredUsers = users.filter((user) => {
     const genderMatch = genderFilter === "all" || user.gender === genderFilter;
-
     const countryMatch =
       countryFilter === "all" || user.location.country === countryFilter;
-
     return genderMatch && countryMatch;
   });
 
