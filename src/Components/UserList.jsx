@@ -10,7 +10,9 @@ export const UserList = () => {
       {loading ? (
         <LoaderScreen />
       ) : (
-        filteredUsers.map((user, idx) => <UserCard key={idx} data={user} />)
+        filteredUsers.map((user) => (
+          <UserCard key={user.login.uuid} data={user} />
+        ))
       )}
     </div>
   );

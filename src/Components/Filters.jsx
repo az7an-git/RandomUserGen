@@ -13,7 +13,6 @@ const Filters = () => {
 
   return (
     <div className="flex justify-center gap-4 mb-6">
-      
       <select
         value={genderFilter}
         onChange={(e) => setGenderFilter(e.target.value)}
